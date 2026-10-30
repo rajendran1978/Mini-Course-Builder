@@ -9,7 +9,7 @@
 
 - `index.html` – the whole course: header, lesson list, and one `<section class="lesson">` per slide
 - `images/` – one picture per lesson 1-10, cropped from the slides (the deck file itself is not stored)
-- `styles.css` – plain styling, light/dark theme colours
+- `styles.css` – the Blueprint design: light/dark theme colours, fonts, layout
 - `script.js` – theme toggle, switching between lessons, and the quizzes
 - `simulator.js` – the divider simulator in the last section (series and parallel)
 - `README.md` – project readme
@@ -39,7 +39,11 @@ The source slide deck is not stored in the repository.
 - A quick quiz (2 multiple-choice questions) at the end of each lesson, with instant feedback and no scoring. Questions are in `script.js`.
 - No progress bar, intro, or summary.
 
+### Design
+
+Blueprint: a faint grid background, blue accent, amber boxes for formulas and correct answers. Fonts: IBM Plex Sans (text) and IBM Plex Mono (formulas, lesson numbers), loaded from Google Fonts with system-font fallbacks. Light theme by default; the dark theme is a navy "blueprint". All colours are variables at the top of `styles.css`.
+
 ### Phases
 
-- **Phase 1 – Course from the slides (lessons and quizzes built; design still to do):** build the page from the user's slides (PDF or PowerPoint) for school and university students who should understand the key ideas. Includes the responsive layout, theme toggle, and per-lesson quizzes. Ask the user for the slides when they are ready to build.
+- **Phase 1 – Course from the slides (lessons, quizzes, simulator and design done):** build the page from the user's slides (PDF or PowerPoint) for school and university students who should understand the key ideas. Includes the responsive layout, theme toggle, and per-lesson quizzes. Ask the user for the slides when they are ready to build.
 - **Later phases:** none planned yet. Add them here when decided.
