@@ -1,0 +1,79 @@
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --border: #999999;
+}
+
+:root[data-theme="dark"] {
+  --bg: #121212;
+  --text: #eeeeee;
+  --border: #777777;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+  line-height: 1.5;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+nav ol {
+  padding-left: 1.25rem;
+}
+
+nav a {
+  color: var(--text);
+}
+
+nav a[aria-current="true"] {
+  font-weight: bold;
+}
+
+.formula {
+  border-left: 3px solid var(--border);
+  padding-left: 0.75rem;
+  overflow-x: auto;
+}
+
+#lesson-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+#lesson-controls[hidden] {
+  display: none;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 2rem;
+  }
+}

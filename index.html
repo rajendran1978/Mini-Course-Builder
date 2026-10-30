@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DC Circuits – Mini-Course</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>DC Circuits</h1>
+    <button id="theme-toggle" type="button">Switch to dark theme</button>
+  </header>
+
+  <nav id="lesson-nav" aria-label="Lessons">
+    <ol>
+      <li><a href="#lesson-1">Nodes, branches and loops</a></li>
+      <li><a href="#lesson-2">Conservation of energy</a></li>
+      <li><a href="#lesson-3">Kirchhoff's Current Law</a></li>
+      <li><a href="#lesson-4">The current divider</a></li>
+      <li><a href="#lesson-5">Current divider example</a></li>
+      <li><a href="#lesson-6">Current divider shortcut</a></li>
+      <li><a href="#lesson-7">Kirchhoff's Voltage Law</a></li>
+      <li><a href="#lesson-8">The voltage divider</a></li>
+      <li><a href="#lesson-9">Voltage across one resistor</a></li>
+      <li><a href="#lesson-10">Voltage divider example</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section class="lesson" id="lesson-1">
+      <h2>1. Nodes, branches and loops</h2>
+      <p>An electric circuit is a set of components joined by wires so that current can flow. Before analysing one, you need three words that engineers use all the time.</p>
+      <ul>
+        <li>A <strong>node</strong> is a point where wires meet.</li>
+        <li>A <strong>branch</strong> is a path between two nodes that holds a single component, such as a resistor or a battery.</li>
+        <li>A <strong>loop</strong> is a closed path: you can start at one point, follow the wires and components, and arrive back where you began. Current can circulate around it.</li>
+      </ul>
+      <p>The example circuit in the lecture has three nodes. Several branches join them, and following the wires around one enclosed space gives a loop.</p>
+    </section>
+
+    <section class="lesson" id="lesson-2">
+      <h2>2. Conservation of energy</h2>
+      <p>Energy cannot be created or destroyed. It can change form, for example from electrical energy into heat or light, but the total amount stays the same.</p>
+      <p>Keep this idea in mind. It is the reason Kirchhoff's Voltage Law (lesson 7) works.</p>
+    </section>
+
+    <section class="lesson" id="lesson-3">
+      <h2>3. Kirchhoff's Current Law (KCL)</h2>
+      <p>Kirchhoff's Current Law, also called his first law, is about what happens at a node. No charge is lost there, so the current flowing into a node must equal the current flowing out. This is the conservation of charge.</p>
+      <p class="formula">I<sub>in1</sub> + I<sub>in2</sub> + I<sub>in3</sub> + … = I<sub>out1</sub> + I<sub>out2</sub> + I<sub>out3</sub> + …</p>
+      <h3>Worked example</h3>
+      <p>A 20&nbsp;mA current enters Node A and leaves through three resistors. R<sub>1</sub> takes 3&nbsp;mA, R<sub>3</sub> takes 12&nbsp;mA, and the current through R<sub>2</sub> is unknown.</p>
+      <p class="formula">20 = 3 + I<sub>2</sub> + 12<br>20 = I<sub>2</sub> + 15<br>I<sub>2</sub> = 5&nbsp;mA</p>
+    </section>
+
+    <section class="lesson" id="lesson-4">
+      <h2>4. The current divider</h2>
+      <p>In a parallel circuit, the source current I<sub>S</sub> splits between the branches. By KCL, the branch currents add up to the source current.</p>
+      <p class="formula">I<sub>S</sub> = I<sub>R1</sub> + I<sub>R2</sub> + … + I<sub>Rn</sub></p>
+      <p>The total (equivalent) resistance of the parallel network is:</p>
+      <p class="formula">R<sub>eq</sub> = 1 / (1/R<sub>1</sub> + 1/R<sub>2</sub> + … + 1/R<sub>n</sub>)</p>
+      <p>Every branch is connected across the same two points, so the voltage at node A, V<sub>A</sub>, is the same for all branches, even though the currents differ. Using Ohm's law, I<sub>R1</sub> = V<sub>A</sub> / R<sub>1</sub>, and V<sub>A</sub> = I<sub>S</sub> × R<sub>eq</sub>. Putting these together gives the current divider formula:</p>
+      <p class="formula">I<sub>Rx</sub> = (R<sub>eq</sub> / R<sub>x</sub>) × I<sub>S</sub></p>
+      <p>Here x is the branch number. A branch with a smaller resistance gets a bigger share of the current.</p>
+      <p><strong>Watch out:</strong> some textbooks write R<sub>T</sub> instead of R<sub>eq</sub> in this formula. In the current divider, R<sub>T</sub> still means the equivalent resistance of the parallel network. It is not the R<sub>T</sub> used in the voltage divider, which is the sum of resistors in series.</p>
+    </section>
+
+    <section class="lesson" id="lesson-5">
+      <h2>5. Current divider example</h2>
+      <p>Three resistors are connected in parallel: R<sub>1</sub> = 680&nbsp;Ω, R<sub>2</sub> = 330&nbsp;Ω and R<sub>3</sub> = 220&nbsp;Ω. The source supplies I<sub>S</sub> = 10&nbsp;mA. The total resistance works out to R<sub>eq</sub> ≈ 111&nbsp;Ω.</p>
+      <p class="formula">I<sub>1</sub> = (111 / 680) × 10&nbsp;mA = 1.63&nbsp;mA<br>I<sub>2</sub> = (111 / 330) × 10&nbsp;mA = 3.36&nbsp;mA<br>I<sub>3</sub> = (111 / 220) × 10&nbsp;mA = 5.05&nbsp;mA</p>
+      <p>The smallest resistor, 220&nbsp;Ω, carries the most current. The three currents add up to about 10&nbsp;mA, the source current (the small difference comes from rounding).</p>
+    </section>
+
+    <section class="lesson" id="lesson-6">
+      <h2>6. Current divider shortcut for two branches</h2>
+      <p>When a parallel circuit has exactly two branches, the formula simplifies. For two resistors, R<sub>eq</sub> = R<sub>1</sub>R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>), and substituting that into the current divider formula gives:</p>
+      <p class="formula">I<sub>1</sub> = I × R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)<br>I<sub>2</sub> = I × R<sub>1</sub> / (R<sub>1</sub> + R<sub>2</sub>)</p>
+      <p>Notice that each branch's current uses the <em>other</em> resistor on top. This is a convenient way to find the current through one resistor.</p>
+      <p>It only works for <strong>two</strong> parallel resistors. For a more complex circuit, simplify it two resistors at a time until the shortcut applies.</p>
+    </section>
+
+    <section class="lesson" id="lesson-7">
+      <h2>7. Kirchhoff's Voltage Law (KVL)</h2>
+      <p>Kirchhoff's Voltage Law, his second law, is about loops. Add up all the voltages around any closed loop, counting rises and drops with their signs, and the total is zero. This follows from conservation of energy: energy given to charge by the source is used up by the components.</p>
+      <p>Another way to say it: in a loop, the sum of the voltage rises equals the sum of the voltage drops.</p>
+      <p class="formula">ΣV = 0<br>V<sub>s</sub> − V<sub>1</sub> − V<sub>2</sub> − V<sub>3</sub> = 0, or V<sub>s</sub> = V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub></p>
+      <h3>Worked example</h3>
+      <p>A 10&nbsp;V battery drives 2&nbsp;A around a loop containing a 3&nbsp;Ω and a 2&nbsp;Ω resistor. The drops are 3 × 2 = 6&nbsp;V and 2 × 2 = 4&nbsp;V. The drops add up to 6 + 4 = 10&nbsp;V, exactly the battery voltage, so KVL holds.</p>
+    </section>
+
+    <section class="lesson" id="lesson-8">
+      <h2>8. The voltage divider</h2>
+      <p>In a series circuit, the same current I flows through every resistor, and the total resistance is the sum: R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>. The supply voltage V is shared out between the resistors.</p>
+      <p>Using Ohm's law (V = IR):</p>
+      <p class="formula">I = V / R<sub>eq</sub><br>V<sub>1</sub> = R<sub>1</sub> × I = (R<sub>1</sub> / R<sub>eq</sub>) × V</p>
+      <p>The same reasoning works for any resistor, which gives the voltage divider formula:</p>
+      <p class="formula">V<sub>x</sub> = (R<sub>x</sub> / R<sub>eq</sub>) × V</p>
+      <p>Here x stands for the name of any resistor in the series circuit, for example V<sub>1</sub> = (R<sub>1</sub> / R<sub>eq</sub>) × V. A larger resistor gets a larger share of the voltage.</p>
+    </section>
+
+    <section class="lesson" id="lesson-9">
+      <h2>9. Voltage across one resistor</h2>
+      <p>The voltage divider also helps when you want the voltage across a single resistor in the middle of a series circuit, such as R<sub>2</sub> between R<sub>1</sub> and R<sub>3</sub>. Call the voltage at the point between R<sub>1</sub> and R<sub>2</sub> V<sub>2</sub>, and the voltage at the point between R<sub>2</sub> and R<sub>3</sub> V<sub>3</sub>. These are measured against the bottom (ground) wire.</p>
+      <p class="formula">V<sub>2</sub> = V × (R<sub>2</sub> + R<sub>3</sub>) / (R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>)<br>V<sub>3</sub> = V × R<sub>3</sub> / (R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>)</p>
+      <p>The voltage across R<sub>2</sub> is the difference, V<sub>23</sub> = V<sub>2</sub> − V<sub>3</sub>. Subtracting gives a direct formula:</p>
+      <p class="formula">V<sub>23</sub> = V × R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>)</p>
+    </section>
+
+    <section class="lesson" id="lesson-10">
+      <h2>10. Voltage divider example</h2>
+      <p>A battery of V<sub>s</sub> = 8&nbsp;V is connected to three resistors in series: R<sub>AB</sub> = 2.15&nbsp;kΩ, R<sub>BC</sub> = 1.0&nbsp;kΩ and R<sub>CD</sub> = 517&nbsp;Ω. The total resistance is R<sub>eq</sub> = 3.667&nbsp;kΩ.</p>
+      <p class="formula">V<sub>AB</sub> = (2.15k / 3.667k) × 8&nbsp;V = 4.69&nbsp;V<br>V<sub>BC</sub> = (1k / 3.667k) × 8&nbsp;V = 2.18&nbsp;V<br>V<sub>CD</sub> = (517 / 3.667k) × 8&nbsp;V = 1.13&nbsp;V</p>
+      <p>Check with KVL: 4.69 + 2.18 + 1.13 = 8.00&nbsp;V, the battery voltage.</p>
+    </section>
+  </main>
+
+  <div id="lesson-controls" hidden>
+    <button id="prev" type="button">Previous</button>
+    <span id="position"></span>
+    <button id="next" type="button">Next</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
