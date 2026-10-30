@@ -160,6 +160,7 @@ function buildQuestion(question, lessonNumber, questionNumber) {
 }
 
 lessons.forEach((lesson, i) => {
+  if (!quizzes[i]) return; // the simulator lesson has no quiz
   const quiz = document.createElement("div");
   quiz.className = "quiz";
   const heading = document.createElement("h3");

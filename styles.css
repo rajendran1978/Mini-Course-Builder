@@ -142,3 +142,39 @@ figure {
 figcaption {
   font-size: 0.9rem;
 }
+
+#simulator fieldset {
+  border: 1px solid var(--border);
+  margin: 1rem 0;
+}
+
+#simulator fieldset label {
+  display: block;
+  margin: 0.25rem 0;
+}
+
+.sim-control {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.75rem 0;
+}
+
+.sim-control input[type="range"] {
+  width: 100%;
+}
+
+.bar {
+  border: 1px solid var(--border);
+  height: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: currentColor;
+}
+
+#sim-results {
+  margin-top: 1rem;
+}

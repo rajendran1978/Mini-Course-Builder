@@ -10,6 +10,7 @@
 - `index.html` – the whole course: header, lesson list, and one `<section class="lesson">` per slide, plus inline SVG circuit diagrams (redrawn, not copied from the deck; they use the theme colours)
 - `styles.css` – plain styling, light/dark theme colours
 - `script.js` – theme toggle, switching between lessons, and the quizzes
+- `simulator.js` – the divider simulator in the last section (series and parallel)
 - `README.md` – project readme
 - `CLAUDE.md` – this file
 
@@ -30,7 +31,7 @@ The source slide deck is not stored in the repository.
 
 ### Site structure
 
-- One page (`index.html`). The slides' title is the page heading; each other slide is a lesson section (10 in total), in slide order.
+- One page (`index.html`). The slides' title is the page heading; each other slide is a lesson section (10 in total), in slide order. An 11th section is an interactive divider simulator (sliders for the supply and three resistors; series or parallel; formulas worked out live; KVL/KCL check). It has no quiz.
 - A header with the light/dark theme toggle (light by default).
 - JavaScript shows one lesson at a time. Students move with Previous/Next buttons or the lesson list. Without JavaScript, all lessons show in one scroll.
 - Redrawn circuit diagrams in lessons 1 and 3–10 (lesson 2's slide was a cartoon, so it has none).

@@ -32,6 +32,7 @@
       <li><a href="#lesson-8">The voltage divider</a></li>
       <li><a href="#lesson-9">Voltage across one resistor</a></li>
       <li><a href="#lesson-10">Voltage divider example</a></li>
+      <li><a href="#lesson-11">Divider simulator</a></li>
     </ol>
   </nav>
 
@@ -158,6 +159,47 @@
       <p class="formula">V<sub>AB</sub> = (2.15k / 3.667k) × 8&nbsp;V = 4.69&nbsp;V<br>V<sub>BC</sub> = (1k / 3.667k) × 8&nbsp;V = 2.18&nbsp;V<br>V<sub>CD</sub> = (517 / 3.667k) × 8&nbsp;V = 1.13&nbsp;V</p>
       <p>Check with KVL: 4.69 + 2.18 + 1.13 = 8.00&nbsp;V, the battery voltage.</p>
     </section>
+
+    <section class="lesson" id="lesson-11">
+      <h2>11. Try it: divider simulator</h2>
+      <p>Use the sliders to change the circuit and watch the divider formulas from lessons 4 to 10 at work. Nothing here is graded, so experiment freely.</p>
+      <div id="simulator">
+        <fieldset>
+          <legend>Circuit type</legend>
+          <label><input type="radio" name="sim-mode" value="series" checked> Series (voltage divider)</label>
+          <label><input type="radio" name="sim-mode" value="parallel"> Parallel (current divider)</label>
+        </fieldset>
+        <div class="sim-control">
+          <label for="sim-supply" id="sim-supply-label">Supply voltage V</label>
+          <input type="range" id="sim-supply" min="1" max="24" step="0.5" value="8">
+          <output for="sim-supply" id="sim-supply-out"></output>
+        </div>
+        <div class="sim-control">
+          <label for="sim-r1">Resistor R<sub>1</sub></label>
+          <input type="range" id="sim-r1" min="100" max="5000" step="1" value="2150">
+          <output for="sim-r1" id="sim-r1-out"></output>
+        </div>
+        <div class="sim-control">
+          <label for="sim-r2">Resistor R<sub>2</sub></label>
+          <input type="range" id="sim-r2" min="100" max="5000" step="1" value="1000">
+          <output for="sim-r2" id="sim-r2-out"></output>
+        </div>
+        <div class="sim-control">
+          <label for="sim-r3">Resistor R<sub>3</sub></label>
+          <input type="range" id="sim-r3" min="100" max="5000" step="1" value="517">
+          <output for="sim-r3" id="sim-r3-out"></output>
+        </div>
+        <button type="button" id="sim-reset">Reset to the lesson example</button>
+        <div id="sim-results"></div>
+      </div>
+      <p>The starting values are the examples from lessons 10 (series) and 5 (parallel). The parallel numbers can differ in the last digit from lesson 5, because the lesson rounds R<sub>eq</sub> to 111&nbsp;Ω and the simulator does not.</p>
+      <h3>Things to try</h3>
+      <ul>
+        <li>In series, make R<sub>2</sub> much bigger. What happens to V<sub>2</sub>, and to the other two voltages?</li>
+        <li>In parallel, make one resistor very small. Which branch takes most of the current?</li>
+        <li>Look at the check line at the bottom. Does the total always match the supply?</li>
+      </ul>
+    </section>
   </main>
 
   <div id="lesson-controls" hidden>
@@ -167,5 +209,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="simulator.js"></script>
 </body>
 </html>
