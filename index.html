@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="res-h" viewBox="0 0 60 20" preserveAspectRatio="none"><path d="M0 10H10L14 2L22 18L30 2L38 18L46 2L50 10H60"/></symbol>
+      <symbol id="res-v" viewBox="0 0 20 60" preserveAspectRatio="none"><path d="M10 0V10L2 14L18 22L2 30L18 38L2 46L10 50V60"/></symbol>
+      <symbol id="bat-v" viewBox="0 0 40 40"><path d="M20 0V15M8 15H32M14 25H26M20 25V40"/></symbol>
+      <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor" stroke="none"/></marker>
+    </defs>
+  </svg>
   <header>
     <h1>DC Circuits</h1>
     <button id="theme-toggle" type="button">Switch to dark theme</button>
@@ -31,12 +39,16 @@
     <section class="lesson" id="lesson-1">
       <h2>1. Nodes, branches and loops</h2>
       <p>An electric circuit is a set of components joined by wires so that current can flow. Before analysing one, you need three words that engineers use all the time.</p>
+      <figure>
+      <svg class="diagram" viewBox="0 0 380 200" role="img" aria-label="A circuit with two nodes (the dots), three branches, and one loop (the circular arrow)."><path d="M40 70V30H300V70M40 110V170H300V130M200 30V70M200 130V170M300 30"/><use href="#bat-v" x="20" y="70" width="40" height="40"/><text x="56" y="86" text-anchor="start">+</text><text x="56" y="114" text-anchor="start">−</text><use href="#res-v" x="190" y="70" width="20" height="60"/><use href="#res-v" x="290" y="70" width="20" height="60"/><circle class="dot" cx="200" cy="30" r="4"/><circle class="dot" cx="200" cy="170" r="4"/><text x="208" y="22" text-anchor="start">Node 1</text><text x="208" y="190" text-anchor="start">Node 2</text><text x="214" y="103" text-anchor="start">branch</text><text x="314" y="103" text-anchor="start">branch</text><text x="48" y="152" text-anchor="start">branch</text><path d="M150 100A30 30 0 1 1 120 70" marker-end="url(#arrowhead)"/><text x="120" y="105" text-anchor="middle">loop</text></svg>
+      <figcaption>A circuit with two nodes (the dots), three branches, and one loop (the circular arrow).</figcaption>
+      </figure>
       <ul>
         <li>A <strong>node</strong> is a point where wires meet.</li>
         <li>A <strong>branch</strong> is a path between two nodes that holds a single component, such as a resistor or a battery.</li>
         <li>A <strong>loop</strong> is a closed path: you can start at one point, follow the wires and components, and arrive back where you began. Current can circulate around it.</li>
       </ul>
-      <p>The example circuit in the lecture has three nodes. Several branches join them, and following the wires around one enclosed space gives a loop.</p>
+      <p>In the diagram, the two dots are nodes. The battery and the two resistors sit on three separate branches between them, and the circular arrow shows one loop.</p>
     </section>
 
     <section class="lesson" id="lesson-2">
@@ -48,6 +60,10 @@
     <section class="lesson" id="lesson-3">
       <h2>3. Kirchhoff's Current Law (KCL)</h2>
       <p>Kirchhoff's Current Law, also called his first law, is about what happens at a node. No charge is lost there, so the current flowing into a node must equal the current flowing out. This is the conservation of charge.</p>
+      <figure>
+      <svg class="diagram" viewBox="0 0 400 200" role="img" aria-label="Node A: 20 mA flows in, and 3 mA, an unknown current and 12 mA flow out through the three resistors."><path d="M60 70V30H310M60 110V170H310"/><use href="#bat-v" x="40" y="70" width="40" height="40"/><text x="76" y="86" text-anchor="start">+</text><text x="76" y="114" text-anchor="start">−</text><text x="36" y="95" text-anchor="end">V</text><line x1="70" y1="30" x2="100" y2="30" marker-end="url(#arrowhead)"/><text x="50" y="20" text-anchor="start">I = 20 mA</text><path d="M130 30V70M130 130V170"/><use href="#res-v" x="120" y="70" width="20" height="60"/><line x1="130" y1="40" x2="130" y2="62" marker-end="url(#arrowhead)"/><text x="144" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">1</tspan> = 3 mA</text><text x="116" y="104" text-anchor="end">R<tspan baseline-shift="sub" font-size="75%">1</tspan></text><circle class="dot" cx="130" cy="30" r="4"/><circle class="dot" cx="130" cy="170" r="4"/><path d="M220 30V70M220 130V170"/><use href="#res-v" x="210" y="70" width="20" height="60"/><line x1="220" y1="40" x2="220" y2="62" marker-end="url(#arrowhead)"/><text x="234" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">2</tspan> = ?</text><text x="206" y="104" text-anchor="end">R<tspan baseline-shift="sub" font-size="75%">2</tspan></text><circle class="dot" cx="220" cy="30" r="4"/><circle class="dot" cx="220" cy="170" r="4"/><path d="M310 30V70M310 130V170"/><use href="#res-v" x="300" y="70" width="20" height="60"/><line x1="310" y1="40" x2="310" y2="62" marker-end="url(#arrowhead)"/><text x="324" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">3</tspan> = 12 mA</text><text x="296" y="104" text-anchor="end">R<tspan baseline-shift="sub" font-size="75%">3</tspan></text><ellipse cx="220.0" cy="30" rx="110.0" ry="14" stroke-dasharray="4 3"/><text x="220.0" y="12" text-anchor="middle">Node A</text></svg>
+      <figcaption>Node A: 20 mA flows in, and 3 mA, an unknown current and 12 mA flow out through the three resistors.</figcaption>
+      </figure>
       <p class="formula">I<sub>in1</sub> + I<sub>in2</sub> + I<sub>in3</sub> + … = I<sub>out1</sub> + I<sub>out2</sub> + I<sub>out3</sub> + …</p>
       <h3>Worked example</h3>
       <p>A 20&nbsp;mA current enters Node A and leaves through three resistors. R<sub>1</sub> takes 3&nbsp;mA, R<sub>3</sub> takes 12&nbsp;mA, and the current through R<sub>2</sub> is unknown.</p>
@@ -57,6 +73,10 @@
     <section class="lesson" id="lesson-4">
       <h2>4. The current divider</h2>
       <p>In a parallel circuit, the source current I<sub>S</sub> splits between the branches. By KCL, the branch currents add up to the source current.</p>
+      <figure>
+      <svg class="diagram" viewBox="0 0 400 200" role="img" aria-label="A parallel circuit: the source current splits into three branch currents."><path d="M60 70V30H310M60 110V170H310"/><use href="#bat-v" x="40" y="70" width="40" height="40"/><text x="76" y="86" text-anchor="start">+</text><text x="76" y="114" text-anchor="start">−</text><text x="36" y="95" text-anchor="end">V</text><line x1="70" y1="30" x2="100" y2="30" marker-end="url(#arrowhead)"/><text x="50" y="20" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">S</tspan></text><path d="M130 30V70M130 130V170"/><use href="#res-v" x="120" y="70" width="20" height="60"/><line x1="130" y1="40" x2="130" y2="62" marker-end="url(#arrowhead)"/><text x="144" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">R1</tspan></text><text x="116" y="104" text-anchor="end">R<tspan baseline-shift="sub" font-size="75%">1</tspan></text><circle class="dot" cx="130" cy="30" r="4"/><circle class="dot" cx="130" cy="170" r="4"/><path d="M220 30V70M220 130V170"/><use href="#res-v" x="210" y="70" width="20" height="60"/><line x1="220" y1="40" x2="220" y2="62" marker-end="url(#arrowhead)"/><text x="234" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">R2</tspan></text><text x="206" y="104" text-anchor="end">R<tspan baseline-shift="sub" font-size="75%">2</tspan></text><circle class="dot" cx="220" cy="30" r="4"/><circle class="dot" cx="220" cy="170" r="4"/><path d="M310 30V70M310 130V170"/><use href="#res-v" x="300" y="70" width="20" height="60"/><line x1="310" y1="40" x2="310" y2="62" marker-end="url(#arrowhead)"/><text x="324" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">R3</tspan></text><text x="296" y="104" text-anchor="end">R<tspan baseline-shift="sub" font-size="75%">3</tspan></text></svg>
+      <figcaption>A parallel circuit: the source current splits into three branch currents.</figcaption>
+      </figure>
       <p class="formula">I<sub>S</sub> = I<sub>R1</sub> + I<sub>R2</sub> + … + I<sub>Rn</sub></p>
       <p>The total (equivalent) resistance of the parallel network is:</p>
       <p class="formula">R<sub>eq</sub> = 1 / (1/R<sub>1</sub> + 1/R<sub>2</sub> + … + 1/R<sub>n</sub>)</p>
@@ -69,6 +89,10 @@
     <section class="lesson" id="lesson-5">
       <h2>5. Current divider example</h2>
       <p>Three resistors are connected in parallel: R<sub>1</sub> = 680&nbsp;Ω, R<sub>2</sub> = 330&nbsp;Ω and R<sub>3</sub> = 220&nbsp;Ω. The source supplies I<sub>S</sub> = 10&nbsp;mA. The total resistance works out to R<sub>eq</sub> ≈ 111&nbsp;Ω.</p>
+      <figure>
+      <svg class="diagram" viewBox="0 0 400 200" role="img" aria-label="Three resistors (680 Ω, 330 Ω and 220 Ω) in parallel, fed by a 10 mA source current."><path d="M60 70V30H310M60 110V170H310"/><use href="#bat-v" x="40" y="70" width="40" height="40"/><text x="76" y="86" text-anchor="start">+</text><text x="76" y="114" text-anchor="start">−</text><text x="36" y="95" text-anchor="end">V</text><line x1="70" y1="30" x2="100" y2="30" marker-end="url(#arrowhead)"/><text x="50" y="20" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">S</tspan> = 10 mA</text><path d="M130 30V70M130 130V170"/><use href="#res-v" x="120" y="70" width="20" height="60"/><line x1="130" y1="40" x2="130" y2="62" marker-end="url(#arrowhead)"/><text x="144" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">1</tspan></text><text x="116" y="104" text-anchor="end">680 Ω</text><circle class="dot" cx="130" cy="30" r="4"/><circle class="dot" cx="130" cy="170" r="4"/><path d="M220 30V70M220 130V170"/><use href="#res-v" x="210" y="70" width="20" height="60"/><line x1="220" y1="40" x2="220" y2="62" marker-end="url(#arrowhead)"/><text x="234" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">2</tspan></text><text x="206" y="104" text-anchor="end">330 Ω</text><circle class="dot" cx="220" cy="30" r="4"/><circle class="dot" cx="220" cy="170" r="4"/><path d="M310 30V70M310 130V170"/><use href="#res-v" x="300" y="70" width="20" height="60"/><line x1="310" y1="40" x2="310" y2="62" marker-end="url(#arrowhead)"/><text x="324" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">3</tspan></text><text x="296" y="104" text-anchor="end">220 Ω</text></svg>
+      <figcaption>Three resistors (680 Ω, 330 Ω and 220 Ω) in parallel, fed by a 10 mA source current.</figcaption>
+      </figure>
       <p class="formula">I<sub>1</sub> = (111 / 680) × 10&nbsp;mA = 1.63&nbsp;mA<br>I<sub>2</sub> = (111 / 330) × 10&nbsp;mA = 3.36&nbsp;mA<br>I<sub>3</sub> = (111 / 220) × 10&nbsp;mA = 5.05&nbsp;mA</p>
       <p>The smallest resistor, 220&nbsp;Ω, carries the most current. The three currents add up to about 10&nbsp;mA, the source current (the small difference comes from rounding).</p>
     </section>
@@ -76,6 +100,10 @@
     <section class="lesson" id="lesson-6">
       <h2>6. Current divider shortcut for two branches</h2>
       <p>When a parallel circuit has exactly two branches, the formula simplifies. For two resistors, R<sub>eq</sub> = R<sub>1</sub>R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>), and substituting that into the current divider formula gives:</p>
+      <figure>
+      <svg class="diagram" viewBox="0 0 310 200" role="img" aria-label="Two parallel resistors: the current I splits into I1 and I2."><path d="M60 70V30H220M60 110V170H220"/><use href="#bat-v" x="40" y="70" width="40" height="40"/><text x="76" y="86" text-anchor="start">+</text><text x="76" y="114" text-anchor="start">−</text><text x="36" y="95" text-anchor="end">V</text><line x1="70" y1="30" x2="100" y2="30" marker-end="url(#arrowhead)"/><text x="50" y="20" text-anchor="start">I</text><path d="M130 30V70M130 130V170"/><use href="#res-v" x="120" y="70" width="20" height="60"/><line x1="130" y1="40" x2="130" y2="62" marker-end="url(#arrowhead)"/><text x="144" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">1</tspan></text><text x="116" y="104" text-anchor="end">R<tspan baseline-shift="sub" font-size="75%">1</tspan></text><circle class="dot" cx="130" cy="30" r="4"/><circle class="dot" cx="130" cy="170" r="4"/><path d="M220 30V70M220 130V170"/><use href="#res-v" x="210" y="70" width="20" height="60"/><line x1="220" y1="40" x2="220" y2="62" marker-end="url(#arrowhead)"/><text x="234" y="58" text-anchor="start">I<tspan baseline-shift="sub" font-size="75%">2</tspan></text><text x="206" y="104" text-anchor="end">R<tspan baseline-shift="sub" font-size="75%">2</tspan></text></svg>
+      <figcaption>Two parallel resistors: the current I splits into I1 and I2.</figcaption>
+      </figure>
       <p class="formula">I<sub>1</sub> = I × R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)<br>I<sub>2</sub> = I × R<sub>1</sub> / (R<sub>1</sub> + R<sub>2</sub>)</p>
       <p>Notice that each branch's current uses the <em>other</em> resistor on top. This is a convenient way to find the current through one resistor.</p>
       <p>It only works for <strong>two</strong> parallel resistors. For a more complex circuit, simplify it two resistors at a time until the shortcut applies.</p>
@@ -84,6 +112,10 @@
     <section class="lesson" id="lesson-7">
       <h2>7. Kirchhoff's Voltage Law (KVL)</h2>
       <p>Kirchhoff's Voltage Law, his second law, is about loops. Add up all the voltages around any closed loop, counting rises and drops with their signs, and the total is zero. This follows from conservation of energy: energy given to charge by the source is used up by the components.</p>
+      <figure>
+      <svg class="diagram" viewBox="0 0 300 210" role="img" aria-label="One loop with a battery and three resistors. The battery voltage equals the sum of the three voltage drops."><path d="M60 80V30H100M160 30H240V70M240 130V170H160M100 170H60V120"/><use href="#bat-v" x="40" y="80" width="40" height="40"/><text x="76" y="96" text-anchor="start">+</text><text x="76" y="118" text-anchor="start">−</text><text x="36" y="105" text-anchor="end">V<tspan baseline-shift="sub" font-size="75%">s</tspan></text><use href="#res-h" x="100" y="20" width="60" height="20"/><use href="#res-v" x="230" y="70" width="20" height="60"/><use href="#res-h" x="100" y="160" width="60" height="20"/><text x="130" y="14" text-anchor="middle">R<tspan baseline-shift="sub" font-size="75%">1</tspan></text><text x="130" y="56" text-anchor="middle">V<tspan baseline-shift="sub" font-size="75%">1</tspan></text><text x="256" y="96" text-anchor="start">R<tspan baseline-shift="sub" font-size="75%">2</tspan></text><text x="256" y="114" text-anchor="start">V<tspan baseline-shift="sub" font-size="75%">2</tspan></text><text x="130" y="152" text-anchor="middle">V<tspan baseline-shift="sub" font-size="75%">3</tspan></text><text x="130" y="198" text-anchor="middle">R<tspan baseline-shift="sub" font-size="75%">3</tspan></text><path d="M165 100A25 25 0 1 1 140 75" marker-end="url(#arrowhead)"/><text x="140" y="105" text-anchor="middle">I</text></svg>
+      <figcaption>One loop with a battery and three resistors. The battery voltage equals the sum of the three voltage drops.</figcaption>
+      </figure>
       <p>Another way to say it: in a loop, the sum of the voltage rises equals the sum of the voltage drops.</p>
       <p class="formula">ΣV = 0<br>V<sub>s</sub> − V<sub>1</sub> − V<sub>2</sub> − V<sub>3</sub> = 0, or V<sub>s</sub> = V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub></p>
       <h3>Worked example</h3>
@@ -93,6 +125,10 @@
     <section class="lesson" id="lesson-8">
       <h2>8. The voltage divider</h2>
       <p>In a series circuit, the same current I flows through every resistor, and the total resistance is the sum: R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>. The supply voltage V is shared out between the resistors.</p>
+      <figure>
+      <svg class="diagram" viewBox="0 0 300 260" role="img" aria-label="Three resistors in series across a voltage V. Each resistor has its own voltage drop."><path d="M60 110V20H200V35M200 85V105M200 155V175M200 225V240H60V150"/><use href="#bat-v" x="40" y="110" width="40" height="40"/><text x="76" y="122" text-anchor="start">+</text><text x="76" y="144" text-anchor="start">−</text><text x="36" y="135" text-anchor="end">V</text><line x1="90" y1="20" x2="140" y2="20" marker-end="url(#arrowhead)"/><text x="115" y="12" text-anchor="middle">I</text><use href="#res-v" x="190" y="35" width="20" height="50"/><text x="216" y="65" text-anchor="start">R<tspan baseline-shift="sub" font-size="75%">1</tspan></text><text x="184" y="65" text-anchor="end">V<tspan baseline-shift="sub" font-size="75%">1</tspan></text><use href="#res-v" x="190" y="105" width="20" height="50"/><text x="216" y="135" text-anchor="start">R<tspan baseline-shift="sub" font-size="75%">2</tspan></text><text x="184" y="135" text-anchor="end">V<tspan baseline-shift="sub" font-size="75%">2</tspan></text><use href="#res-v" x="190" y="175" width="20" height="50"/><text x="216" y="205" text-anchor="start">R<tspan baseline-shift="sub" font-size="75%">3</tspan></text><text x="184" y="205" text-anchor="end">V<tspan baseline-shift="sub" font-size="75%">3</tspan></text></svg>
+      <figcaption>Three resistors in series across a voltage V. Each resistor has its own voltage drop.</figcaption>
+      </figure>
       <p>Using Ohm's law (V = IR):</p>
       <p class="formula">I = V / R<sub>eq</sub><br>V<sub>1</sub> = R<sub>1</sub> × I = (R<sub>1</sub> / R<sub>eq</sub>) × V</p>
       <p>The same reasoning works for any resistor, which gives the voltage divider formula:</p>
@@ -103,6 +139,10 @@
     <section class="lesson" id="lesson-9">
       <h2>9. Voltage across one resistor</h2>
       <p>The voltage divider also helps when you want the voltage across a single resistor in the middle of a series circuit, such as R<sub>2</sub> between R<sub>1</sub> and R<sub>3</sub>. Call the voltage at the point between R<sub>1</sub> and R<sub>2</sub> V<sub>2</sub>, and the voltage at the point between R<sub>2</sub> and R<sub>3</sub> V<sub>3</sub>. These are measured against the bottom (ground) wire.</p>
+      <figure>
+      <svg class="diagram" viewBox="0 0 300 260" role="img" aria-label="The voltages V2 and V3 are measured at the two ends of R2, against the bottom wire."><path d="M60 110V20H200V35M200 85V105M200 155V175M200 225V240H60V150"/><use href="#bat-v" x="40" y="110" width="40" height="40"/><text x="76" y="122" text-anchor="start">+</text><text x="76" y="144" text-anchor="start">−</text><text x="36" y="135" text-anchor="end">V</text><line x1="90" y1="20" x2="140" y2="20" marker-end="url(#arrowhead)"/><text x="115" y="12" text-anchor="middle">I</text><use href="#res-v" x="190" y="35" width="20" height="50"/><text x="216" y="65" text-anchor="start">R<tspan baseline-shift="sub" font-size="75%">1</tspan></text><use href="#res-v" x="190" y="105" width="20" height="50"/><text x="216" y="135" text-anchor="start">R<tspan baseline-shift="sub" font-size="75%">2</tspan></text><use href="#res-v" x="190" y="175" width="20" height="50"/><text x="216" y="205" text-anchor="start">R<tspan baseline-shift="sub" font-size="75%">3</tspan></text><circle class="dot" cx="200" cy="95" r="4"/><text x="188" y="100" text-anchor="end">V<tspan baseline-shift="sub" font-size="75%">2</tspan></text><circle class="dot" cx="200" cy="165" r="4"/><text x="188" y="170" text-anchor="end">V<tspan baseline-shift="sub" font-size="75%">3</tspan></text></svg>
+      <figcaption>The voltages V2 and V3 are measured at the two ends of R2, against the bottom wire.</figcaption>
+      </figure>
       <p class="formula">V<sub>2</sub> = V × (R<sub>2</sub> + R<sub>3</sub>) / (R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>)<br>V<sub>3</sub> = V × R<sub>3</sub> / (R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>)</p>
       <p>The voltage across R<sub>2</sub> is the difference, V<sub>23</sub> = V<sub>2</sub> − V<sub>3</sub>. Subtracting gives a direct formula:</p>
       <p class="formula">V<sub>23</sub> = V × R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>)</p>
@@ -111,6 +151,10 @@
     <section class="lesson" id="lesson-10">
       <h2>10. Voltage divider example</h2>
       <p>A battery of V<sub>s</sub> = 8&nbsp;V is connected to three resistors in series: R<sub>AB</sub> = 2.15&nbsp;kΩ, R<sub>BC</sub> = 1.0&nbsp;kΩ and R<sub>CD</sub> = 517&nbsp;Ω. The total resistance is R<sub>eq</sub> = 3.667&nbsp;kΩ.</p>
+      <figure>
+      <svg class="diagram" viewBox="0 0 300 260" role="img" aria-label="An 8 V battery across three series resistors. Points A, B, C and D mark the ends of each resistor."><path d="M60 110V20H200V35M200 85V105M200 155V175M200 225V240H60V150"/><use href="#bat-v" x="40" y="110" width="40" height="40"/><text x="76" y="122" text-anchor="start">+</text><text x="76" y="144" text-anchor="start">−</text><text x="36" y="135" text-anchor="end">8 V</text><use href="#res-v" x="190" y="35" width="20" height="50"/><text x="216" y="65" text-anchor="start">2.15 kΩ</text><use href="#res-v" x="190" y="105" width="20" height="50"/><text x="216" y="135" text-anchor="start">1.0 kΩ</text><use href="#res-v" x="190" y="175" width="20" height="50"/><text x="216" y="205" text-anchor="start">517 Ω</text><circle class="dot" cx="200" cy="35" r="4"/><text x="188" y="40" text-anchor="end">A</text><circle class="dot" cx="200" cy="95" r="4"/><text x="188" y="100" text-anchor="end">B</text><circle class="dot" cx="200" cy="165" r="4"/><text x="188" y="170" text-anchor="end">C</text><circle class="dot" cx="200" cy="225" r="4"/><text x="188" y="230" text-anchor="end">D</text></svg>
+      <figcaption>An 8 V battery across three series resistors. Points A, B, C and D mark the ends of each resistor.</figcaption>
+      </figure>
       <p class="formula">V<sub>AB</sub> = (2.15k / 3.667k) × 8&nbsp;V = 4.69&nbsp;V<br>V<sub>BC</sub> = (1k / 3.667k) × 8&nbsp;V = 2.18&nbsp;V<br>V<sub>CD</sub> = (517 / 3.667k) × 8&nbsp;V = 1.13&nbsp;V</p>
       <p>Check with KVL: 4.69 + 2.18 + 1.13 = 8.00&nbsp;V, the battery voltage.</p>
     </section>

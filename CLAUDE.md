@@ -7,7 +7,7 @@
 
 ## Project Structure
 
-- `index.html` – the whole course: header, lesson list, and one `<section class="lesson">` per slide
+- `index.html` – the whole course: header, lesson list, and one `<section class="lesson">` per slide, plus inline SVG circuit diagrams (redrawn, not copied from the deck; they use the theme colours)
 - `styles.css` – plain styling, light/dark theme colours
 - `script.js` – theme toggle, switching between lessons, and the quizzes
 - `README.md` – project readme
@@ -33,6 +33,7 @@ The source slide deck is not stored in the repository.
 - One page (`index.html`). The slides' title is the page heading; each other slide is a lesson section (10 in total), in slide order.
 - A header with the light/dark theme toggle (light by default).
 - JavaScript shows one lesson at a time. Students move with Previous/Next buttons or the lesson list. Without JavaScript, all lessons show in one scroll.
+- Redrawn circuit diagrams in lessons 1 and 3–10 (lesson 2's slide was a cartoon, so it has none).
 - A quick quiz (2 multiple-choice questions) at the end of each lesson, with instant feedback and no scoring. Questions are in `script.js`.
 - No progress bar, intro, or summary.
 

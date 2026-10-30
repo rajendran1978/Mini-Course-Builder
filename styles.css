@@ -111,3 +111,34 @@ button:disabled {
   opacity: 1;
   cursor: default;
 }
+
+figure {
+  margin: 1rem 0;
+}
+
+.diagram {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  height: auto;
+  color: var(--text);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.diagram text {
+  fill: currentColor;
+  stroke: none;
+  font: 14px sans-serif;
+}
+
+.diagram .dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+figcaption {
+  font-size: 0.9rem;
+}
